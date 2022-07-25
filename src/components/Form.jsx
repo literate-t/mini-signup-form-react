@@ -26,7 +26,7 @@ const Form = () => {
                 }}
             />
             <FormField
-                id={'confirm-pw'}
+                id={'confirmPw'}
                 label={'비밀번호 확인'}
                 inputProps={{
                     type: 'password',
