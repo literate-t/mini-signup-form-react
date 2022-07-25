@@ -32,7 +32,6 @@ const FormField = ({ id, label, inputProps, errorData, setErrorData }) => {
                 case 'confirmPw':
                     result =
                         value === formData['pw'] ? true : 'invalidConfirmPw'
-                    console.log(value, formData['pw'], inputId, result)
                     break
                 default:
                     throw new Error('invalid id')

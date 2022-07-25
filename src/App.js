@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useRef, useState } from 'react'
 import './App.css'
 import FontControlBox from './components/FontControlBox'
 import Footer from './components/Footer'
@@ -9,22 +9,24 @@ const initialFormData = {
     pw: '',
     confirmPw: '',
 }
-export const FormContext = createContext({
-    formData: initialFormData,
-    setFormData: () => {},
-})
+export const FormContext = createContext()
+// export const FormContext = createContext({
+//     formData: initialFormData,
+//     setFormData: () => {},
+// })
 
 function App() {
     const [formData, setFormData] = useState(initialFormData)
+    const modalRef = useRef()
     return (
         <>
             <FormContext.Provider value={{ formData, setFormData }}>
                 <section className="form-wrapper">
-                    <Form />
+                    <Form modalRef={modalRef} />
                     <Footer />
                 </section>
                 <FontControlBox />
-                <Modal />
+                <Modal ref={modalRef} />
             </FormContext.Provider>
         </>
     )
